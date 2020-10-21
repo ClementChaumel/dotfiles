@@ -1,0 +1,106 @@
+{
+  {
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+      {
+        "border": "pixel",
+        "current_border_width": 0,
+        "floating": "auto_off",
+        "geometry": {
+          "height": 458,
+          "width": 802,
+          "x": 0,
+          "y": 0
+        },
+        "name": "Terminal - clement@lubuntu-de-clement: ~",
+        "percent": 0.5,
+        "swallows": [
+          {
+            "class": "^Xfce4\\-terminal$",
+            "instance": "^xfce4\\-terminal$",
+            "title": "^Terminal\\ \\-\\ clement\\@lubuntu\\-de\\-clement\\:\\ \\~$"
+          }
+        ],
+        "type": "con"
+      },
+      {
+        "border": "pixel",
+        "current_border_width": 0,
+        "floating": "auto_off",
+        "geometry": {
+          "height": 458,
+          "width": 802,
+          "x": 0,
+          "y": 0
+        },
+        "name": "Terminal - clement@lubuntu-de-clement: ~",
+        "percent": 0.5,
+        "swallows": [
+          {
+            "class": "^Xfce4\\-terminal$",
+            "instance": "^xfce4\\-terminal$",
+            "title": "^Terminal\\ \\-\\ clement\\@lubuntu\\-de\\-clement\\:\\ \\~$"
+          }
+        ],
+        "type": "con"
+      }
+    ]
+  }
+
+  {
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.5,
+    "type": "con",
+    "nodes": [
+      {
+        "border": "pixel",
+        "current_border_width": 0,
+        "floating": "auto_off",
+        "geometry": {
+          "height": 458,
+          "width": 802,
+          "x": 0,
+          "y": 0
+        },
+        "name": "Terminal - clement@lubuntu-de-clement: ~",
+        "percent": 0.5,
+        "swallows": [
+          {
+            "class": "^Xfce4\\-terminal$",
+            "instance": "^xfce4\\-terminal$",
+            "title": "^Terminal\\ \\-\\ clement\\@lubuntu\\-de\\-clement\\:\\ \\~$"
+          }
+        ],
+        "type": "con"
+      },
+      {
+        "border": "pixel",
+        "current_border_width": 0,
+        "floating": "auto_off",
+        "geometry": {
+          "height": 458,
+          "width": 802,
+          "x": 0,
+          "y": 0
+        },
+        "name": "Terminal - i3-save-tree --workspace 2 > ~/.i3/terminaux.json",
+        "percent": 0.5,
+        "swallows": [
+          {
+            "class": "^Xfce4\\-terminal$",
+            "instance": "^xfce4\\-terminal$",
+            "title": "^Terminal\\ \\-\\ i3\\-save\\-tree\\ \\-\\-workspace\\ 2\\ \\>\\ \\~\\/\\.i3\\/terminaux\\.json$"
+          }
+        ],
+        "type": "con"
+      }
+    ]
+  }
+
+  }

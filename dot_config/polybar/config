@@ -1,0 +1,422 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+
+[colors]
+
+fg = ${colors.white}
+modfg = ${colors.blue}
+alt = ${colors.black}
+alt2 = ${colors.red}
+bg = ${colors.black}
+
+
+white = #F5F6F7
+red = #CC575D
+blue = #5294E2
+dark-gray = #414A59
+black = #303642
+blacker = #222222
+
+
+[bar/Bar]
+bottom = false
+dock = false
+width = 100%
+height = 45
+offset-y = 5
+
+override-redirect = true
+wm-restack = i3
+
+
+;monitor = ${env:MONITOR:HDMI-1}
+
+fixed-center = true
+
+border-size =0
+border-color = #00aaaaaa
+
+enable-ipc = false
+
+spacing = 1
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 1
+;amodules-right = updates date menu0
+;modules-center = mpd
+;modules-left = cpu memory filesystem
+
+modules-center = date
+modules-left = i3
+modules-right = volume filesystem keyboard network battery menu0
+
+separator = "      "
+
+background = ${colors.bg}
+foreground = ${colors.white}
+
+;overline-size = 2
+;overline-color = ${colors.white}
+underline-size = 4
+;underline-color = ${colors.modfg}
+
+font-0 = System San Francisco Display:weight=regular:size=9;3
+font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=10;3"
+font-2 = System San Francisco Display:weight=regular:size=13;3
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;3"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=12;3"
+font-5 = "Font Awesome 5 Brands:pixelsize=20;6"
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 30
+
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+
+;mount-0 = /
+mount-0 = /
+mount-1 = /home/gui/HDD
+
+label-mounted =  %free%
+;label-mounted-underline = ${colors.modfg}
+label-mounted-padding = 1
+;label-mounted-background = ${colors.bg}
+
+label-unmounted =
+;label-unmounted-foreground = ${colors.bg}
+
+
+[module/i3]
+type = internal/i3
+
+format = <label-state> <label-mode>
+format-spacing = 0
+
+; ws-icon-[0-9]+ = label;icon
+; NOTE: The label needs to match the name of the i3 workspace
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = ♟
+
+label-focused = %icon%
+label-focused-padding = 5
+label-focused-margin = 1
+label-focused-font = 5
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.white}
+
+label-unfocused = %icon%
+label-unfocused-padding = 5
+label-unfocused-margin = 1
+label-unfocused-background = ${colors.dark-gray}
+label-unfocused-foreground = ${colors.white}
+label-unfocused-font = 5
+
+label-urgent = %icon%
+label-urgent-padding = 5
+label-urgent-margin = 1
+label-urgent-background = ${colors.blue}
+label-urgent-foreground = ${colors.white}
+label-urgent-font = 5
+
+label-visible = %icon%
+label-visible-padding = 5
+label-visible-margin = 1
+label-visible-background = ${colors.red}
+label-visible-foreground = ${colors.white}
+label-visible-font = 5
+
+
+
+[module/mpd]
+type = internal/mpd
+
+host = gui
+port = 4200
+
+;format-online = <label-song> <icon-prev> <icon-play> <icon-pause> <icon-next>
+format-online = <label-song>
+format-offline = <label-offline>
+
+label-offline = mpd is offline
+;label-offline-foreground = ${colors.bg}
+
+label-song = "%artist% - %title%"
+label-song-maxlen = 120
+label-song-ellipsis = false
+;label-song-background = ${colors.black}
+;label-song-padding = 1
+
+
+;icon-prev = 
+;icon-seekb = <<
+;icon-stop = o
+;icon-pause = %{T4}
+;icon-play = %{T4}
+;icon-next = %{T4}
+;icon-seekf = >>
+
+icon-random = S
+icon-repeat = R
+
+toggle-on-foreground = #e60053
+toggle-off-foreground = #66
+
+
+[module/backlight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = │
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = #55
+
+
+[module/cpu]
+format-label = internal/cpu
+
+format = <label>
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-underline = ${colors.fg}
+
+type = internal/cpu
+interval = 2
+label = " %percentage%%"
+
+;label-underline = ${colors.modfg}
+;label-background = ${colors.bg}
+;label-overline = ${colors.white}
+
+
+[module/memory]
+type = internal/memory
+interval = 2
+
+label = " %percentage_used%%"
+;label = RAM %percentage_used%%
+;label-underline = ${colors.modfg}
+;label-foreground = ${colors.modfg}
+;label-background = ${colors.bg}
+
+[module/network]
+type = internal/network
+interface = wlp1s0
+interval = 3)
+
+format-connected-padding = 1
+format-disconnected-padding = 1
+
+format-connected = <label-connected>
+format-connected-underline = ${colors.white}
+format-disconnected-underline = ${colors.red}
+
+label-connected = %essid%
+label-disconnected = 
+label-disconnected-foreground = ${colors.red}
+
+[module/date]
+type = internal/date
+date = %A %d %B  %H:%M
+interval = 5
+label-font = 3
+;format-underline = ${colors.modfg}
+;format-background = ${colors.bg}
+;format-foreground = ${colors.fg}
+;format-padding = 2
+
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+
+label-volume = 
+label-volume-foreground = ${root.foreground}
+
+label-muted =  sound muted
+label-muted-foreground = ${colors.dark-gray}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${colors.blue}
+bar-volume-foreground-1 = ${colors.blue}
+bar-volume-foreground-2 = ${colors.blue}
+bar-volume-foreground-3 = ${colors.blue}
+bar-volume-foreground-4 = ${colors.red}
+bar-volume-foreground-5 = ${colors.red}
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 3
+bar-volume-indicator-foreground = ${colors.white}
+bar-volume-fill = 
+bar-volume-fill-font = 3
+bar-volume-empty = 
+bar-volume-empty-font = 3
+bar-volume-empty-foreground = ${colors.dark-gray}
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 90
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.blue}
+format-charging-padding = 1
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.red}
+format-discharging-padding = 1
+
+format-full =   <label-full>
+format-full-underline = ${self.format-charging-underline}
+format-full-overline = ${self.format-charging-underline}
+format-full-padding = 1
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.white}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.white}
+animation-charging-framerate = 500
+
+
+[module/temperature]
+type = internal/temperature
+; thermal-zone = 0
+warn-temperature = 65
+
+format = <label>
+format-warn = <label-warn>
+
+label = TEMP %temperature%
+label-warn = TEMP %temperature%!!!
+
+
+[module/menu0]
+type = custom/menu
+
+format = <label-toggle> <menu>
+;format-underline = ${colors.white}
+format-padding = 1
+;format-margin = 1
+
+;format-background = ${colors.black}
+
+menu-0-0 = " shutdown "
+menu-0-0-exec = shutdown now
+menu-0-1 = " restart "
+menu-0-1-exec = shutdown -r now
+menu-0-2 =   cancel
+
+
+label-open = 
+label-close =
+
+[module/updates]
+type = custom/script
+
+;label-background = ${colors.bg}
+;label-padding = 0
+;label-underline = ${colors.modfg}
+
+exec = checkupdates | wc -l
+;tail = true
+interval = 60
+
+label  = " %output%"
+
+
+[module/cputemp]
+type = custom/script
+
+;label-background = ${colors.bg}
+;label-padding = 0
+;label-underline = ${colors.modfg}
+
+exec = sensors | grep --max-count=1 "CPU Temperature:" | awk '{print substr($0,22,2)}'
+;tail = true
+interval = 10
+
+label = " %output%°C"
+
+
+[module/gputemp]
+type = custom/script
+
+;label-background = ${colors.bg}
+;label-padding = 0
+;label-underline = ${colors.modfg}
+
+exec = nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits
+;tail = true
+interval = 10
+
+label = "GPU %output%°C"
+
+[module/keyboard]
+type = internal/xkeyboard
+
+; List of indicators to ignore
+blacklist-0 = num lock
+blacklist-1 = scroll lock
+blacklist-2 = caps lock
+
+; Available tags:
+;   <label-layout> (default)
+;   <label-indicator> (default)
+format = <label-layout> <label-indicator>
+format-spacing = 0
+
+; Available tokens:
+;   %layout%
+;   %name%
+;   %number%
+; Default: %layout%
+label-layout = %name%
+label-layout-padding = 2
+
+; vim:ft=dosini
